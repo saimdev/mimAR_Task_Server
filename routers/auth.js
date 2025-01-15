@@ -104,7 +104,7 @@ router.post("/api/login", (req, res) => {
 router.get('/api/logout', (req, res)=>{
   console.log("Logging out user....");
   res.clearCookie("authToken", {
-    // path: "/",      
+    path: "/",      
     httpOnly: true, 
     secure: true,  
     sameSite: "none" 

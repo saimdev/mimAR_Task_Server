@@ -9,7 +9,7 @@ const bcrypt = require("bcrypt");
 const authenticate = require("../middlewares/authenticate");
 
 
-router.get('/', (req, res)=>{
+router.get('/api', (req, res)=>{
     res.send("Hello from router server home page");
 });
 
@@ -103,7 +103,7 @@ router.get('/api/logout', (req, res)=>{
 })
 
 
-router.get('/getData', authenticate, (req, res, next) => {
+router.get('/api/getData', authenticate, (req, res, next) => {
     res.send(req.currentUser);
   });
 
@@ -195,7 +195,7 @@ router.post('/api/update', async (req, res) => {
   }
 });
 
-router.post('/auth/github/callback', async (req, res) => {
+router.post('/api/auth/github/callback', async (req, res) => {
   const { code } = req.body;
 
   // Exchange code for access token

@@ -3,6 +3,12 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
 const app = express();
+const corsOptions = {
+  origin: 'https://mim-ar-task-client.vercel.app',
+  methods: ['GET', 'POST'], 
+  credentials: true, 
+};
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.json());
 

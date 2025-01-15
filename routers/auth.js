@@ -79,9 +79,8 @@ router.post("/api/login", (req, res) => {
             checkUser.generateAuthToken()
               .then((token) => {
                 res.cookie("authToken", token, {
-                  httpOnly: true,
+                  httpOnly: false,
                   secure: true, 
-                  domain: "https://mim-ar-task-client.vercel.app/",
                   sameSite: "none",
                   maxAge: 24 * 60 * 60 * 1000, 
                 });

@@ -1,16 +1,8 @@
 const express = require('express')
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const cors = require('cors');
-
-
 
 const app = express();
-app.use(cors({
-  origin: ["http://45.133.178.107:3000"],
-  methods: ["POST", "GET"],
-  credentials: true
-}));
 app.use(cookieParser());
 app.use(express.json());
 

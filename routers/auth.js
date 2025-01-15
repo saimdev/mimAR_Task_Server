@@ -78,7 +78,12 @@ router.post("/api/login", (req, res) => {
           if (isMatch) {
             checkUser.generateAuthToken()
               .then((token) => {
-                res.cookie("authToken", token);
+                res.cookie("authToken", token, {
+                  httpOnly: true,
+                  secure: true, 
+                  sameSite: "none",
+                  maxAge: 24 * 60 * 60 * 1000, 
+                });
                 res.status(200).json({ message: "Successfully logged in" });
               })
               .catch((err) => { console.log(err); });

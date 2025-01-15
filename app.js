@@ -6,6 +6,7 @@ const cors = require("cors");
 const app = express();
 const corsOptions = {
   origin: 'https://mim-ar-task-client.vercel.app',
+  credentials: true,
   methods: ['GET', 'POST'], 
   credentials: true, 
 };

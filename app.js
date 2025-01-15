@@ -8,7 +8,6 @@ const corsOptions = {
   origin: 'https://mim-ar-task-client.vercel.app',
   credentials: true,
   methods: ['GET', 'POST'], 
-  credentials: true, 
 };
 app.use(cors(corsOptions));
 app.use(cookieParser());

@@ -174,7 +174,7 @@ router.get('/api/getData', authenticate, (req, res, next) => {
     res.send(req.currentUser);
   });
 
-router.get('/api/allUsers', authenticate, async (req, res, next) => {
+router.get('/api/allUsers', async (req, res, next) => {
   try{
     const users = await User.find({}, '-password -tokens');
     res.status(200).json(users);

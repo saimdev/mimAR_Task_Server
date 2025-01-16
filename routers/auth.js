@@ -176,7 +176,7 @@ router.get('/api/getData', authenticate, (req, res, next) => {
 
 router.get('/api/allUsers', authenticate, async (req, res, next) => {
   try{
-    const users = await User.find({}, '-password -tokenms');
+    const users = await User.find({}, '-password -tokens');
     res.status(200).json(users);
   } catch(error){
     console.error(error);

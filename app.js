@@ -2,6 +2,8 @@ const express = require('express')
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require("cors");
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger');
 
 const app = express();
 const corsOptions = {
@@ -10,6 +12,7 @@ const corsOptions = {
   methods: ['GET', 'POST'], 
 };
 app.use(cors(corsOptions));
+
 app.use(cookieParser());
 app.use(express.json());
 
@@ -19,6 +22,7 @@ dotenv.config({path:'./config.env'});
 require('./db/conn');
 
 app.use(require('./routers/auth'));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 const PORT = process.env.PORT;
 const User = require("./models/userSchema");
